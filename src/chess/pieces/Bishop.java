@@ -50,7 +50,7 @@ public class Bishop extends ChessPiece{
 			
 		}
 		
-		// above moves
+		// SW moves
 		p.setValues(position.getRow() +1, position.getColumn() -1);
 		while (getBoard().PositionExists(p) && !getBoard().TherelsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
