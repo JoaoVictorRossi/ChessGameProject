@@ -118,6 +118,18 @@ public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) 
 		
 	}
 	
+	public static void newPromotion(ChessMatch chessMatch, Scanner scanner) {
+		if (chessMatch.getPromoted() != null) {
+			System.out.println("Enter piece for promotion (B/N/R/Q): ");
+			String type = scanner.nextLine().toUpperCase();
+			while (!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
+				System.out.println("Invalid value! Enter piece for promotion (B/N/R/Q): ");
+				type = scanner.nextLine().toUpperCase();
+			}
+			chessMatch.replacePromotedPiece(type);
+		}
+	}
+	
 	private static void printCapturedPieces(List<ChessPiece> captured) {
 		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList());
 		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());
